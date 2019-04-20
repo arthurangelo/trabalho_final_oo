@@ -6,7 +6,6 @@ import java.util.List;
 
 import DAO.ClienteDAO;
 import DAO.ContaDAO;
-import DAO.IDAO;
 import DAO.LoteDAO;
 import DAO.PlasticoDAO;
 import DAO.TransacaoDAO;

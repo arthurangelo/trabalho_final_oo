@@ -1,3 +1,4 @@
+package app;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -5,6 +6,7 @@ import model.domain.ClienteImportacao;
 import model.domain.ImportacaoDefault;
 import model.domain.LoteImportacao;
 import services.Services;
+import processadora.*;
 
 public class Importacao {
 	public static void main(String args[]) throws Exception {

@@ -1,3 +1,4 @@
+package processadora;
 
 public enum ProcessadorasEnum {
 	CLIENTE("Cliente",new ProcessadoraCliente()), CONTA("Conta",new ProcessadoraConta()), TRANSACAO("Transacao",new ProcessadoraTransacao()),
