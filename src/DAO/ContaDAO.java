@@ -8,10 +8,10 @@ import model.domain.ClienteImportacao;
 import model.domain.ContaImportacao;
 import model.domain.ImportacaoDefault;
 
-public class ContaDAO {
+public class ContaDAO extends DefaultDAO {
 	private static PreparedStatement dao;
 
-	public static void save(ImportacaoDefault importacao) throws SQLException {
+	public  void save(ImportacaoDefault importacao) throws SQLException {
 		String sql = "	INSERT INTO dbimportacao.tbconta (nrocta,cpfcli,vlrlim,diaven) VALUES (?,?,?,?)";
 		dao = Conexao.getStatement(sql);
 		try {

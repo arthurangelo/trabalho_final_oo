@@ -7,9 +7,9 @@ import java.text.SimpleDateFormat;
 import model.domain.ImportacaoDefault;
 import model.domain.LoteImportacao;
 
-public class LoteDAO {
+public class LoteDAO extends DefaultDAO {
 	private static PreparedStatement dao;
-	public static void save(ImportacaoDefault importacao) throws SQLException {
+	public  void save(ImportacaoDefault importacao) throws SQLException {
 	String sql = "INSERT INTO tbcontrolerecebimento (tiparq,numlot,dathraprc) values (?,?,?)";
 	
 	dao = Conexao.getStatement(sql);

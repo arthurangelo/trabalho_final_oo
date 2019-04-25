@@ -6,10 +6,10 @@ import java.sql.SQLException;
 import model.domain.ImportacaoDefault;
 import model.domain.PlasticoImportacao;
 
-public class PlasticoDAO {
+public class PlasticoDAO extends DefaultDAO{
 	private static PreparedStatement dao;
 
-	public static void save(ImportacaoDefault importacao) throws SQLException {
+	public  void save(ImportacaoDefault importacao) throws SQLException {
 		String sql = "INSERT INTO tbplastico (nropla,nompla,cpfpla,nrocta) VALUES (?,?,?,?)";
 		dao = Conexao.getStatement(sql);
 		try {

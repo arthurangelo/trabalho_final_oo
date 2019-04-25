@@ -4,8 +4,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.text.DefaultTextUI;
+
 import DAO.ClienteDAO;
 import DAO.ContaDAO;
+import DAO.DefaultDAO;
 import DAO.LoteDAO;
 import DAO.PlasticoDAO;
 import DAO.TransacaoDAO;
@@ -30,26 +33,10 @@ public class Services {
 		return arquivos;
 	}
 	
-	public static void save(ImportacaoDefault importacao) {
+	public static void save(DefaultDAO dao,ImportacaoDefault importacao) {
 		try {
-			if(importacao instanceof ClienteImportacao) {
-				ClienteDAO.save(importacao);
-			}
-			else if(importacao instanceof TransacaoImportacao) {
-				TransacaoDAO.save(importacao);
-			}
-			else if(importacao instanceof ContaImportacao) {
-				ContaDAO.save(importacao);
-			}
-			else if(importacao instanceof PlasticoImportacao) {
-				PlasticoDAO.save(importacao);
-			}
-			else if(importacao instanceof LoteImportacao) {
-				LoteDAO.save(importacao);
-			}
-			
+			dao.save(importacao);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

@@ -2,6 +2,9 @@ package app;
 import java.util.ArrayList;
 import java.util.List;
 
+import DAO.ClienteDAO;
+import DAO.DefaultDAO;
+import DAO.LoteDAO;
 import model.domain.ClienteImportacao;
 import model.domain.ImportacaoDefault;
 import model.domain.LoteImportacao;
@@ -23,10 +26,11 @@ public class Importacao {
 			System.out.println(listaImportada);
 			System.out.println(processadora.getLoteProcessado());
 			
-			Services.save(processadora.getLoteProcessado());
+			Services.save(new LoteDAO(),processadora.getLoteProcessado());
 			
 			for(ImportacaoDefault importacao : listaImportada) {
-				Services.save(importacao);
+				
+				Services.save(getDAO(arquivo),importacao);
 			}
 
 		}
@@ -39,4 +43,10 @@ public class Importacao {
 		ProcessadoraArquivo processadora = new ProcessadoraArquivo(tipoProcessadora);
 		return processadora;
 	}
+	
+	private static DefaultDAO getDAO(String arquivo) {
+		return ProcessadorasEnum.getDAObyArquivo(arquivo);
+	}
+	
+	
 }

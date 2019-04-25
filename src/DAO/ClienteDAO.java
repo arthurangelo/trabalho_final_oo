@@ -8,11 +8,11 @@ import java.util.Date;
 import model.domain.ClienteImportacao;
 import model.domain.ImportacaoDefault;
 
-public class ClienteDAO {
+public class ClienteDAO extends DefaultDAO {
 
 	private static PreparedStatement dao;
 
-	public static void save(ImportacaoDefault importacao) throws SQLException {
+	public void save(ImportacaoDefault importacao) throws SQLException {
 		String sql = "INSERT INTO tbcliente (cpfcli,nomcli,endcli,baicli,cidcli,sigest,datcad) values (?,?,?,?,?,?,?)";
 		dao = Conexao.getStatement(sql);
 		try {
